@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROYECTO INTEGRADOR</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Generador de Paletas - Henry M1</title>
+    <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
     <main>
-        <h1>GENERADOR DE COLORES</h1>
-        <!-----CONTROLES----->
+        <h1>PALETTE GENERATOR</h1>
+        
         <div class="controles">
-            <label for="select-cantidadfasdfasdf">Cantidad de colores</label>
+            <label for="select-cantidad">Cantidad de colores</label>
             <select id="select-cantidad">
                 <option value="6">6 colores</option>
                 <option value="8">8 colores</option>
@@ -20,17 +20,11 @@
             <button id="btn-generar">Generar Paleta</button>            
         </div>
 
-        <!-------MOSTRAR LAS TARJETAS------------>
-        <div id="paleta" role="lista">
+        <div id="paleta" role="list"></div>
 
-        </div>
-
-        <!---------TOAST PARA MICROFEEDBACK----------->
-        <div id="toast" role="status">
-
-        </div>
+        <div id="toast" role="status">¡Copiado al portapapeles!</div>
     </main>
 
-     <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
