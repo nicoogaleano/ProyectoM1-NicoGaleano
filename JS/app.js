@@ -132,5 +132,7 @@ toggleFormato.addEventListener('change', mostrarPaleta);
 // Ejecución inicial al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
     toggleFormato.checked = true; // Arranca por defecto mostrando HEX
-    manejarNuevaPaleta();
+    
+    // 👁️ BORRAMOS la línea "manejarNuevaPaleta();" para que empiece vacío.
+    contenedorPaleta.innerHTML = ''; 
 });
