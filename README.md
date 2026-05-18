@@ -20,4 +20,4 @@
 Para ejecutar este proyecto de forma local en tu computadora:
 
 1. Clona este repositorio:
-   git clone https://github.com/nicoogaleano/ProyectoM1-NicoGaleano.git](https://github.com/nicoogaleano/ProyectoM1-NicoGaleano.git)
+   git clone https://github.com/nicoogaleano/ProyectoM1-NicoGaleano.git
