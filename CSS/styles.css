@@ -55,7 +55,7 @@ h1 {
 .controles {
     background: rgba(26, 26, 26, 0.8);
     padding: 25px;
-    border-radius: 15px;
+    border-radius: 35px;
     border: 1px solid var(--neon-cyan);
     display: flex;
     justify-content: center;
@@ -71,6 +71,79 @@ h1 {
     text-shadow: 0 0 10px var(--neon-cyan);
     font-weight: bold;
     text-transform: uppercase;
+}
+
+/* ==========================================
+   ESTILOS PARA LAS TARJETAS DE COLORES (JS)
+   ========================================== */
+
+/* Contenedor principal de la paleta */
+#paleta {
+    display: flex;
+    flex-wrap: wrap;       /* Si son muchos colores, los pasa a la siguiente línea */
+    justify-content: center;
+    gap: 25px;             /* Espacio de separación entre tarjetas */
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Estructura de la tarjeta individual */
+.color-card {
+    border-radius: 12px;
+    padding: 12px;
+    width: 160px;          /* Ancho fijo para que queden simétricas */
+    box-shadow: 2px 2px 15px var(--neon-cyan);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color-card:hover {
+    transform: translateY(-5px); /* Efecto levitación al pasar el mouse */
+    box-shadow: 0 12px 25px rgba(0, 255, 255, 0.2); /* Resplandor cian */
+    border-color: var(--neon-cyan);
+}
+
+/* El bloque/caja que muestra el color real */
+.color-box {
+    width: 100%;
+    height: 150px;         /* Alto de la caja de color */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.color-box:hover {
+    opacity: 0.9;          /* Sutil cambio al hacer click */
+}
+
+/* Sección de texto y botón abajo de la caja de color */
+.color-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.color-info span {
+    font-family: 'Courier New', Courier, monospace; /* Tipografía tipo código */
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+/* Botón pequeño para copiar el icono */
+.btn-copy {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s, transform 0.1s;
+    padding: 4px;
+}
+
+.btn-copy:hover {
+    color: var(--neon-pink); /* Se pone rosa cuando pasas el mouse */
+    transform: scale(1.2);
 }
 
 select {
@@ -101,6 +174,85 @@ select {
     background: var(--neon-pink);
     color: #000;
     box-shadow: 0 0 25px var(--neon-pink);
+}
+
+
+/* ==========================================
+   ESTILOS PARA EL TOGGLE SWITCH (NEÓN)
+   ========================================== */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.toggle-label {
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* El contenedor del switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+/* Ocultamos el checkbox por defecto */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* El slider (deslizador) */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    transition: .4s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+/* Cuando está activado (HEX seleccionado) */
+input:checked + .slider {
+    background-color: rgba(255, 0, 255, 0.2);
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+input:checked + .slider:before {
+    background-color: var(--neon-pink);
+    transform: translateX(24px);
+}
+
+/* Bordes redondeados */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
 
 #toast {
