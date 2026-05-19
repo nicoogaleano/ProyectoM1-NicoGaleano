@@ -313,23 +313,23 @@ input:checked + .slider:before {
 }
 
 #toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    /* Fondo oscuro semitransparente */
-    background: rgba(13, 13, 13, 0.9); 
-    
-    /* Color de texto y borde neón cian */
+  position: fixed;            /* Hace que flote respecto a la pantalla, no al contenido */
+    bottom: 195px;               /* 👁️ CLAVE: Lo despega del fondo para que quede ARRIBA del footer */
+    left: 15%;
+    transform: translateX(-50%); /* Con estos dos se centra perfectamente en cualquier pantalla */
+    background: rgba(13, 13, 13, 0.9);
     color: var(--neon-cyan);
-    border: 2px solid var(--neon-cyan);
-    
-    padding: 12px 30px;
-    border-radius: 50px;
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    padding: 12px 25px;
+    border-radius: 8px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    z-index: 9999;              /* Forzamos que se dibuje por encima de absolutamente todo */
+    display: none;              /* Arranca oculto controlado por JS */
+    pointer-events: none;       /* Evita que moleste si querés hacer click a algo que quedó abajo */
+    font-size: 0.9rem;
     
     /* El brillo neón que le faltaba */
     box-shadow: 0 0 15px var(--neon-cyan), inset 0 0 5px var(--neon-cyan);
