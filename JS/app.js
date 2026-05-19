@@ -123,6 +123,26 @@ function copiarAlPortapapeles(texto) {
         });
 }
 
+// Escucha cuando el usuario cambia el interruptor (Toggle)
+toggleFormato.addEventListener('change', () => {
+    // 1. Volvemos a dibujar las tarjetas con el formato nuevo
+    mostrarPaleta();
+    
+    // 2. 👁️ SÓLO SI YA HAY COLORES GENERADOS, mostramos el feedback de cambio
+    if (coloresActuales.length > 0) {
+        const formatoActual = toggleFormato.checked ? 'HEX' : 'HSL';
+        
+        // Reutilizamos la lógica del toast para darle feedback al usuario
+        toast.textContent = `Formato cambiado a: ${formatoActual}`;
+        toast.style.display = 'block';
+        
+        // Lo ocultamos automáticamente a los 2 segundos
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 2000);
+    }
+});
+
 // 5. ESCUCHADORES DE EVENTOS (EVENT LISTENERS)
 btnGenerar.addEventListener('click', manejarNuevaPaleta);
 
@@ -136,3 +156,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // 👁️ BORRAMOS la línea "manejarNuevaPaleta();" para que empiece vacío.
     contenedorPaleta.innerHTML = ''; 
 });
+
