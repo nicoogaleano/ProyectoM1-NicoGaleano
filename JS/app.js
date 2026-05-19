@@ -142,6 +142,34 @@ toggleFormato.addEventListener('change', () => {
         }, 2000);
     }
 });
+function manejarNuevaPaleta() {
+    // 1. Mostrar el mensaje del Toast inmediatamente
+    toast.textContent = "Vas a generar una paleta de colores";
+    toast.style.display = 'block';
+    
+    // Programar que el cartel se borre solo en 2 segundos
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 2000);
+
+    // 2. Reiniciar el array de colores
+    coloresActuales = []; 
+    
+    // 👁️ OJO ACÁ: Asegurate de que el ID en tu HTML sea exactamente 'cantidad'
+    // Si tu select tiene otro id (ej. id="num-colores"), cambialo acá.
+    const selectCantidad = document.getElementById('select-cantidad');
+    const cantidad = selectCantidad ? parseInt(selectCantidad.value) : 5; 
+
+    // 3. Llenar el array con los nuevos códigos aleatorios
+    // 👁️ OJO: Tu función para crear un color debe llamarse exactamente 'generarColorAleatorio'
+    for (let i = 0; i < cantidad; i++) {
+        coloresActuales.push(generarColorAleatorio());
+    }
+
+    // 4. 🚀 LA LLAMADA MAESTRA: Dibujar las tarjetas en la pantalla
+    // 👁️ OJO: Tu función encargada de hacer el innerHTML e inyectar las tarjetas debe llamarse 'mostrarPaleta'
+    mostrarPaleta();
+}
 
 // 5. ESCUCHADORES DE EVENTOS (EVENT LISTENERS)
 btnGenerar.addEventListener('click', manejarNuevaPaleta);
@@ -156,4 +184,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // 👁️ BORRAMOS la línea "manejarNuevaPaleta();" para que empiece vacío.
     contenedorPaleta.innerHTML = ''; 
 });
-
